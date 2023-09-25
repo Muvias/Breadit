@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/Toaster"
 
 import Navbar from '@/components/Navbar'
+import Providers from '@/components/Providers'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -31,15 +32,17 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {/* @ts-expect-error server component */}
-          <Navbar />
+          <Providers>
+            {/* @ts-expect-error server component */}
+            <Navbar />
 
-          {authModal}
+            {authModal}
 
-          <div className='container max-w-7xl mx-auto h-full pt-12'>
-            {children}
-          </div>
-          <Toaster />
+            <div className='container max-w-7xl mx-auto h-full pt-12'>
+              {children}
+            </div>
+            <Toaster />
+          </Providers>
         </ThemeProvider>
       </body>
     </html>
