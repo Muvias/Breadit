@@ -33,6 +33,7 @@ export function MiniCreatePost({ session }: MiniCreatePostProps) {
                     readOnly
                     onClick={() => router.push(pathname + '/submit')}
                     placeholder="Criar post"
+                    className="cursor-pointer"
                 />
 
                 <Button
