@@ -85,8 +85,8 @@ model Post {
   id          String    @id @default(cuid())
   title       String
   content     Json?
-  createdAt   DateTime? @default(now())
-  updatedAt   DateTime? @updatedAt
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
   subreddit   Subreddit @relation(fields: [subredditId], references: [id])
   subredditId String
 

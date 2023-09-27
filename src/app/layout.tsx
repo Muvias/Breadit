@@ -25,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='PT-BR' className={cn('bg-white antialiased light', inter.className)}>
-      <body className='min-h-screen pt-12'>
+      <body className='min-h-screen pt-12 bg-zinc-50 dark:bg-background'>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

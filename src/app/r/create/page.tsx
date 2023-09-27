@@ -64,7 +64,7 @@ export default function Create() {
 
     return (
         <div className="container flex items-center h-full max-w-3xl mx-auto">
-            <div className="relative w-full h-fit p-4 rounded-lg space-y-6 bg-slate-50 dark:bg-gray-900">
+            <div className="relative w-full h-fit p-4 rounded-lg space-y-6 bg-card dark:bg-gray-900">
                 <div className="flex justify-between items-center">
                     <h1 className="text-xl font-semibold">
                         Criar uma comunidade

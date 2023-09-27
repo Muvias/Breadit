@@ -36,5 +36,4 @@ export async function POST(req: Request) {
 
         return new Response('Não foi possível inscrever-se na comunidade, por favor tente novamente mais tarde', { status: 500 })
     }
-
 }
