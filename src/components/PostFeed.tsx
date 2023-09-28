@@ -6,7 +6,7 @@ import { useIntersection } from "@mantine/hooks"
 import { useInfiniteQuery } from "@tanstack/react-query"
 import axios from "axios"
 import { useSession } from "next-auth/react"
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 import { Post } from "./Post"
 
 interface PostFeedProps {
@@ -43,6 +43,12 @@ export function PostFeed({ initialPosts, subredditName }: PostFeedProps) {
 
     const posts = data?.pages.flatMap((page) => page) ?? initialPosts
 
+        useEffect(() => {
+            if (entry?.isIntersecting) {
+                fetchNextPage()
+            }
+        }, [entry, fetchNextPage])
+
     return (
         <ul className="flex flex-col col-span-2 space-y-6">
             {posts.map((post, index) => {
@@ -65,6 +71,8 @@ export function PostFeed({ initialPosts, subredditName }: PostFeedProps) {
                                 subredditName={post.subreddit.name}
                                 post={post}
                                 commentAmount={post.comments.length}
+                                votesAmount={votesAmount}
+                                currentVote={currentVote}
                             />
                         </li>
                     )
@@ -74,6 +82,8 @@ export function PostFeed({ initialPosts, subredditName }: PostFeedProps) {
                             subredditName={post.subreddit.name}
                             post={post}
                             commentAmount={post.comments.length}
+                            votesAmount={votesAmount}
+                            currentVote={currentVote}
                         />
                     )
                 }

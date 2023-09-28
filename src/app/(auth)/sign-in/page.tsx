@@ -11,7 +11,7 @@ export default function signIn() {
             <div className="flex flex-col items-center justify-center h-full max-w-2xl mx-auto gap-20">
                 <Link
                     href='/'
-                    className={cn(buttonVariants({ variant: 'ghost' }), 'self-start -mt-20')}
+                    className={cn(buttonVariants({ variant: 'ghost' }), 'self-start -mt-20 dark:text-zinc-300')}
                 >
                     <ChevronLeft className="h-4 w-4 mr-2" />
                     Início

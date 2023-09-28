@@ -17,11 +17,11 @@ export default function SignIn() {
 
                 <UserAuthForm />
 
-                <p className="px-8 text-center text-sm text-zinc-700">
+                <p className="px-8 text-center text-sm text-zinc-700 dark:text-zinc-500">
                     Novo no Breadit?{' '}
                     <Link
                         href="/sign-up"
-                        className="text-sm underline underline-offset-4 hover:text-zinc-800"
+                        className="text-sm underline underline-offset-4 hover:text-zinc-800 dark:text-zinc-400"
                     >
                         Cadastre-se
                     </Link>
