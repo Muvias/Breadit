@@ -24,8 +24,8 @@ export default function RootLayout({
   authModal: React.ReactNode
 }) {
   return (
-    <html lang='PT-BR' className={cn('bg-white antialiased light', inter.className)}>
-      <body className='min-h-screen pt-12 bg-zinc-50 dark:bg-background'>
+    <html lang='PT-BR' className={inter.className}>
+      <body className='min-h-screen pt-12 bg-zinc-50 dark:bg-background antialiased'>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

@@ -43,11 +43,11 @@ export function PostFeed({ initialPosts, subredditName }: PostFeedProps) {
 
     const posts = data?.pages.flatMap((page) => page) ?? initialPosts
 
-        useEffect(() => {
-            if (entry?.isIntersecting) {
-                fetchNextPage()
-            }
-        }, [entry, fetchNextPage])
+    useEffect(() => {
+        if (entry?.isIntersecting) {
+            fetchNextPage()
+        }
+    }, [entry, fetchNextPage])
 
     return (
         <ul className="flex flex-col col-span-2 space-y-6">

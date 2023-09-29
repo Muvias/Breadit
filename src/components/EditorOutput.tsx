@@ -1,3 +1,5 @@
+'use client'
+
 import dynamic from "next/dynamic"
 import Image from "next/image"
 
@@ -36,7 +38,7 @@ function CustomImageRenderer({ data }: any) {
     const src = data.file.url
 
     return (
-        <div className="relative w-full min-h-[15rem]">
+        <div className="relative w-full min-h-[20rem]">
             <Image src={src} alt="image" className="object-contain" fill />
         </div>
     )
@@ -44,7 +46,7 @@ function CustomImageRenderer({ data }: any) {
 
 function CustomCodeRenderer({ data }: any) {
     return (
-        <pre className="p-4 rounded-md bg-gray-800">
+        <pre className="p-4 rounded-md bg-gray-600 dark:bg-gray-800 overflow-auto">
             <code className="text-sm text-gray-100">
                 {data.code}
             </code>
