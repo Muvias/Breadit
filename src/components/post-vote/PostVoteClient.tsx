@@ -75,7 +75,10 @@ export function PostVoteClient({ postId, initialVotesAmount, initialVote }: Post
     return (
         <div className="flex flex-col sm:w-20 gap-2 sm:gap-0 pr-6 pb-4 sm:pb-0">
             <Button
-                onClick={() => vote('UP')}
+                onClick={() => {
+                    vote('UP')
+                    console.log(votesAmount)
+                }}
                 size='sm'
                 variant='ghost'
                 aria-label="upvote"
@@ -90,7 +93,10 @@ export function PostVoteClient({ postId, initialVotesAmount, initialVote }: Post
             </p>
 
             <Button
-                onClick={() => vote('DOWN')}
+                onClick={() => {
+                    vote('DOWN')
+                    console.log(votesAmount)
+                }}
                 size='sm'
                 variant='ghost'
                 aria-label="downvote"

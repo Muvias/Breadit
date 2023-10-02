@@ -59,6 +59,33 @@ export async function CommentsSection({ postId }: CommentsSectionProps) {
                                         votesAmount={topLevelCommentVotesAmount}
                                     />
                                 </div>
+
+                                {topLevelComment.replies
+                                    .sort((a, b) => b.votes.length - a.votes.length)
+                                    .map((reply) => {
+                                        const replyVotesAmount = reply.votes.reduce((acc, vote) => {
+                                            if (vote.type === 'UP') return acc + 1
+                                            if (vote.type === 'DOWN') return acc - 1
+
+                                            return acc
+                                        }, 0)
+
+                                        const replyVote = reply.votes.find((vote) => vote.userId === session?.user.id)
+
+                                        return (
+                                            <div
+                                                key={reply.id}
+                                                className="py-2 pl-4 ml-2 border-l-2 border-zinc-200"
+                                            >
+                                                <PostComment
+                                                    postId={postId}
+                                                    comment={reply}
+                                                    currentVote={replyVote}
+                                                    votesAmount={replyVotesAmount}
+                                                />
+                                            </div>
+                                        )
+                                    })}
                             </div>
                         )
                     })}

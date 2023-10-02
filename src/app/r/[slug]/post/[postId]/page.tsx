@@ -43,7 +43,6 @@ export default async function page({ params }: PageProps) {
         <div>
             <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between h-full">
                 <Suspense fallback={<PostVoteShell />}>
-                    {/* @ts-expect-error server component */}
                     <PostVoteServer
                         postId={post?.id ?? cachedPost.id}
                         getData={async () => {
@@ -59,7 +58,7 @@ export default async function page({ params }: PageProps) {
                     />
                 </Suspense>
 
-                <div className="sm:w-0 w-full flex-1 p-4 rounded-sm dark:shadow bg-card dark:border dark:border-white/30 dark:shadow-white/50">
+                <div className="sm:w-0 w-full flex-1 p-4 shadow rounded-sm bg-card dark:border dark:border-white/30 dark:shadow-white/50">
                     <p className="max-h-40 mt-1 truncate text-sm text-gray-500">
                         Postado por u/{post?.author.username ?? cachedPost.authorUsername}{' '}
 
@@ -73,7 +72,6 @@ export default async function page({ params }: PageProps) {
                     <EditorOutput content={post?.content ?? cachedPost.content} />
 
                     <Suspense fallback={<Loader2 className="animate-spin h-5 w-5 text-zinc-500 dark:text-zinc-400" />}>
-                        {/* @ts-expect-error server component */}
                         <CommentsSection postId={post?.id ?? cachedPost.id} />
                     </Suspense>
                 </div>

@@ -118,6 +118,7 @@ export function Editor({ subredditId }: EditorProps) {
                     },
                     list: List,
                     code: Code,
+                    InlineCode: InlineCode,
                     table: Table,
                     embed: Embed,
                 }
@@ -141,7 +142,7 @@ export function Editor({ subredditId }: EditorProps) {
                 })
             }
         }
-    }, [])
+    }, [errors])
 
     useEffect(() => {
         const init = async () => {

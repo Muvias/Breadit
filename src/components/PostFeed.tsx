@@ -8,6 +8,7 @@ import axios from "axios"
 import { useSession } from "next-auth/react"
 import { useEffect, useRef } from "react"
 import { Post } from "./Post"
+import { Loader2 } from "lucide-react"
 
 interface PostFeedProps {
     initialPosts: ExtendedPost[]
@@ -79,6 +80,7 @@ export function PostFeed({ initialPosts, subredditName }: PostFeedProps) {
                 } else {
                     return (
                         <Post
+                            key={post.id}
                             subredditName={post.subreddit.name}
                             post={post}
                             commentAmount={post.comments.length}
@@ -88,6 +90,12 @@ export function PostFeed({ initialPosts, subredditName }: PostFeedProps) {
                     )
                 }
             })}
+
+            {isFetchingNextPage && (
+                <li className='flex justify-center'>
+                    <Loader2 className='w-6 h-6 text-zinc-500 animate-spin' />
+                </li>
+            )}
         </ul>
     )
 }

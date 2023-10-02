@@ -1,8 +1,6 @@
 import '@/styles/globals.css'
 import { Inter } from 'next/font/google'
 
-import { cn } from '@/lib/utils'
-
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/Toaster"
 
@@ -33,7 +31,6 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Providers>
-            {/* @ts-expect-error server component */}
             <Navbar />
 
             {authModal}

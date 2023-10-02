@@ -5,6 +5,9 @@ import { getAuthSession } from "@/lib/auth";
 import { HomeIcon } from "lucide-react";
 import Link from "next/link";
 
+export const dynamic = 'force-dynamic'
+export const fetchCache = 'force-no-store'
+
 export default async function Home() {
   const session = await getAuthSession()
 
@@ -12,7 +15,6 @@ export default async function Home() {
     <>
       <h1 className="font-bold text-3xl md:text-4xl">Seu feed</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-y-4 md:gap-x-4 py-6">
-        {/* @ts-expect-error server component */}
         {session ? <CustomFeed /> : <GeneralFeed />}
 
         <div className="overflow-hidden h-fit rounded-lg border order-first md:order-last border-gray-200">

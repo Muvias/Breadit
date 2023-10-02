@@ -45,7 +45,7 @@ export function Post({ subredditName, post, commentAmount, votesAmount, currentV
                             </>
                         ) : null}
 
-                        <span className="px-1">Postado por u/{post.author.name}</span>{' '}
+                        <span className="px-1">Postado por u/{post.author.username}</span>{' '}
                         {formatTimeToNow(new Date(post.createdAt))}
                     </div>
 
