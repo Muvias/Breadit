@@ -21,6 +21,7 @@ const style = {
 const renderers = {
     image: CustomImageRenderer,
     code: CustomCodeRenderer,
+    list: CustomListRenderer,
 }
 
 export function EditorOutput({ content }: EditorOutputProps) {
@@ -30,6 +31,7 @@ export function EditorOutput({ content }: EditorOutputProps) {
             style={style}
             className="text-sm"
             renderers={renderers}
+            id='OutputEditorJS'
         />
     )
 }
@@ -52,4 +54,18 @@ function CustomCodeRenderer({ data }: any) {
             </code>
         </pre>
     )
+}
+
+function CustomListRenderer({ data }: any) {
+    const items = data.items.map((item: string, index: number) => (
+        <li key={index} className="">
+            {item}
+        </li>
+    ));
+
+    return (
+        <ul className="list-disc ml-4 my-2">
+            {items}
+        </ul>
+    );
 }
